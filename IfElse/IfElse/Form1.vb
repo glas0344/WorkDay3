@@ -11,8 +11,18 @@ Public Class Form1
         Dim st1 As String = txtFirstNum.Text
         Dim st2 As String = txtSecondNum.Text
 
+        If Not (IsNumeric(st1) And IsNumeric(st2)) Then
+            MessageBox.Show("Check 1: Please enter a vald input. Integers only!")
+            Return
+        End If
+
         num1 = CDbl(st1)
         num2 = CDbl(st2)
+
+        If IsNumeric(CDbl(st1) <= 0) And IsNumeric(CDbl(st2) <= 0) Then
+            MessageBox.Show("Check 2: Please enter a positive value.")
+            Return
+        End If
 
         Dim result As String
 
@@ -25,6 +35,10 @@ Public Class Form1
         End If
 
         txtResult.Text = result
+
     End Sub
 
+    Private Sub txtFirstNum_TextChanged(sender As Object, e As EventArgs) Handles txtFirstNum.TextChanged
+
+    End Sub
 End Class
